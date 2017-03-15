@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+	<property>
+		<name>storage.data.store.class</name>
+		<value>org.apache.gora.hbase.store.HBaseStore</value>
+		<description>Default class for storing data</description>
+	</property>
+	<property>
+		<name>http.agent.name</name>
+		<value>Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64;Trident</value>
+	</property>
+	<property>
+		<name>http.agent.version</name>
+		<value>6.0)</value>
+	</property>
+	<property>
+		<name>http.robots.agents</name>
+		<value>none</value>
+	</property>
+	<property>
+		<name>plugin.includes</name>
+		<value>protocol-http|query-(basic|site|url|lang)|urlfilter-regex|urlnormalizer-(pass|regex|basic)|parse-(js|text|html|msexcel|msword|mspowerpoint|pdf|tika|metatags)|indexer-solr|index-(basic|anchor|more|metadata)|nutch-extensionpoints|index-enterprise|scoring-opic</value>
+	</property>
+	<property>
+		<name>http.accept.language</name>
+		<value>zh-cn,en-us,en-gb,en;q=0.7,*;q=0.3</value>
+		<description>Value of the "Accept-Language" request header field.
+			This
+			allows selecting non-English language as default one to retrieve.
+			It
+			is a useful setting for search engines build for certain national
+			group.
+		</description>
+	</property>
+    <property>
+		<name>plugin.folders</name>
+		<value>/root/WangQun/B01-Nutch/02_CodeSource/nutch-2.3.1/build/plugins</value>
+	</property>
+	<property>
+		<name>io.serializations</name>
+		<value>org.apache.hadoop.io.serializer.WritableSerialization</value>
+		<description>A list of serialization classes that can be used
+			forobtaining serializers and deserializers.
+		</description>
+	</property>
+	<property>
+		<name>db.ignore.external.links</name>
+		<value>true</value>
+	</property>
+	<!-- tika properties to use BoilerPipe, according to Marcus Jelsma -->
+	<property>
+		<name>tika.use_boilerpipe</name>
+		<value>true</value>
+	</property>
+	<property>
+		<name>tika.boilerpipe.extractor</name>
+		<value>ArticleExtractor</value>
+	</property>
+	<property>
+		<name>http.content.limit</name>
+		<value>6553600</value>
+		<description>The length limit for downloaded content using the http
+			protocol, in bytes. If this value is nonnegative (>=0), content
+			longer
+			than it will be truncated; otherwise, no truncation at all. Do
+			not
+			confuse this setting with the file.content.limit setting.
+		</description>
+	</property>
+	<property>
+		<name>fetcher.queue.depth.multiplier</name>
+		<value>200</value>
+	</property>
+	<property>
+		<name>fetcher.server.delay</name>
+		<value>2.0</value>
+	</property>
+	<property>
+		<name>fetcher.server.min.delay</name>
+		<value>1.0</value>
+	</property>
+	<property>
+		<name>fetcher.threads.fetch</name>
+		<value>200</value>
+		<description>The number of FetcherThreads the fetcher should use.
+			This is also determines the maximum number of requests that are
+			made at once (each FetcherThread handles one connection). The total
+			number of threads running in distributed mode will be the number of
+			fetcher threads * number of nodes as fetcher has one map task per
+			node.
+		</description>
+	</property>
+	<property>
+		<name>fetcher.threads.per.queue</name>
+		<value>10</value>
+		<description>This number is the maximum number of threads that
+			should be allowed to access a queue at one time. Setting it to
+			a value > 1 will cause the Crawl-Delay value from robots.txt to
+			be ignored and the value of fetcher.server.min.delay to be used
+			as a delay between successive requests to the same server instead
+			of fetcher.server.delay.
+		</description>
+	</property>
+	<property>
+  		<name>db.signature.class</name>
+  		 <value>org.apache.nutch.crawl.TextProfileSignature</value>
+  		<description>The default implementation of a page signature. Signatures
+  created with this implementation will be used for duplicate detection
+  and removal.
+  		</description>
+	</property>
+
+	<property>
+  		<name>db.signature.text_profile.quant_rate</name>
+  		<value>0.01</value>
+  		<description>Profile frequencies will be rounded down to a multiple of QUANT = (int)(QUANT_RATE * maxFreq), where maxFreq is a maximum token
+  frequency. If maxFreq > 1 then QUANT will be at least 2, which means that
+  for longer texts tokens with frequency 1 will always be discarded.
+  		</description>
+	</property>
+	<property>
+  		<name>fetcher.parse</name>
+  		<value>true</value>
+  		<description>If true, fetcher will parse content. NOTE: previous releases would
+  default to true. Since 2.0 this is set to false as a safer default.</description>
+  	</property>
+</configuration>
